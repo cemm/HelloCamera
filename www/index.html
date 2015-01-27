@@ -19,6 +19,8 @@
         pictureSource=navigator.camera.PictureSourceType;
         destinationType=navigator.camera.DestinationType;
     }
+        
+// -------------------------------------------------------------------------------------
 
     // Called when a photo is successfully retrieved
     //
@@ -40,6 +42,9 @@
       smallImage.src = "data:image/jpeg;base64," + imageData;
     }
 
+        
+// -------------------------------------------------------------------------------------
+
     // Called when a photo is successfully retrieved
     //
     function onPhotoURISuccess(imageURI) {
@@ -60,6 +65,9 @@
       largeImage.src = imageURI;
     }
 
+        
+// -------------------------------------------------------------------------------------
+
     // A button will call this function
     //
     function capturePhoto() {
@@ -68,13 +76,20 @@
         destinationType: destinationType.DATA_URL });
     }
 
+        
+// -------------------------------------------------------------------------------------
+
     // A button will call this function
     //
     function capturePhotoEdit() {
       // Take picture using device camera, allow edit, and retrieve image as base64-encoded string
       navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 20, allowEdit: true,
+        targetWidth: 650, targetHeight: 650, correctOrientation: true,
         destinationType: destinationType.DATA_URL });
     }
+
+        
+// -------------------------------------------------------------------------------------
 
     // A button will call this function
     //
@@ -85,6 +100,9 @@
         sourceType: source });
     }
 
+        
+// -------------------------------------------------------------------------------------
+
     // Called if something bad happens.
     //
     function onFail(message) {
@@ -92,6 +110,9 @@
     }
 
     </script>
+        
+// -------------------------------------------------------------------------------------
+
   </head>
   <body>
     <button onclick="capturePhoto();">Capture Photo</button> <br>
